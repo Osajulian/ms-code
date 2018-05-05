@@ -1,0 +1,68 @@
+
+/* container */
+div.table-responsive {
+  background-color: #0f8ec7;
+  height: 600px;
+  padding: 14px 7px
+}
+
+/* table */
+table {
+  width: 100%;
+  border-spacing: 5px 12px;
+  padding: 0 8px 8px 0;
+  background-color: white;
+  vertical-align: middle;
+  margin: 0 auto; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table { border-collapse:collapse; }
+table thead th { border-bottom: 1px solid #ddd; }
+
+/* thead */
+thead > tr > th {
+  color:#A9A9A9;
+  font-size:0.8rem;
+}
+
+/* th */
+th:nth-of-type(2), td:nth-child(2) {
+  text-align: right;
+  padding-right: 17%;
+}
+
+
+/* td */
+td:first-of-type {
+  color: #0f8ec7;
+  
+}
+
+td {
+  width: 50%;
+  height: 20px;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.4rem
+}
+
+/* tfoot */
+ tfoot > tr > th > span {
+ text-align: center;
+ color: #0f8ec7;
+ }
+
+
+/* try-outs */
+
+.chevron {
+  color:  #0f8ec7;
+}
+
+
+
+
+negativeRed {
+  color: red !important;
+}

@@ -1,0 +1,50 @@
+<div class='panel panel-primary'>
+<div class='panel-heading'>
+
+</div>
+<div class='panel-body'>
+    <div class='table-responsive'>
+        <table class='table'>
+            <thead>
+                <tr>
+                     <th [class.active]="order === 'account'"
+            (click)="setAccountOrder('account')"
+        >
+          Account <span class="chevron" [hidden]="reverse">▼</span
+          ><span class="chevron" [hidden]="!reverse">▲</span>
+        </th>
+                       <th [class.active]="order === 'availableCash'"
+            (click)="setOrder('availableCash')"
+        >
+          <span class="chevron" [hidden]="reverse">▼</span
+          ><span class="chevron" [hidden]="!reverse">▲</span>Available Cash<br />Today's Change
+        </th>
+                </tr>
+            </thead>
+            <tbody *ngIf="isValid; else elseBlock">
+<tr  *ngFor = "let row of collection.slice(3) | orderBy: order:reverse:'case-insensitive':customComparator"> 
+    <td>{{row.account}}</td>
+    <td>{{row.availableCash | currency: 'USD': 'symbol'}}<br /> <span [ngStyle]="{'color':row.percentageVariance.charAt(0) === '-' ? 'red' : (row.percentageVariance.charAt(0) === '+' ? 'green' : 'black')}">{{row.percentageVariance + '%'}} / {{row.cashVariance | currency: 'USD': 'symbol'}}</span></td>
+    </tr>
+    </tbody>
+<ng-template #elseBlock>
+    <tbody>
+    <tr  *ngFor = "let row of collection | orderBy: order:reverse:'case-insensitive':customComparator"> 
+    <td>{{row.account}}</td>
+    <td>{{row.availableCash | currency: 'USD': 'symbol'}}<br /><span [ngStyle]="{'color':row.percentageVariance.charAt(0) === '-' ? 'red' : (row.percentageVariance.charAt(0) === '+' ? 'green' : 'black')}">{{row.percentageVariance + '%'}} / {{row.cashVariance | currency: 'USD': 'symbol'}}</span></td>
+    </tr>
+    </tbody>
+</ng-template>
+            <tfoot>
+    <tr>
+      <th colspan="2">
+      <span (click) = 'changeValue(false)'>Load More</span>
+      
+        </th>
+    </tr>
+  </tfoot>
+            </table>  
+    </div>
+  
+</div>
+</div>
